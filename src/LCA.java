@@ -19,14 +19,24 @@ class Node {
  */
 class BinaryTree {
     Node root;
-
+    int N = 0;
     /**
      * initialises Binary Tree Structure with initial root key
      * @param key the key to insert
      */
     BinaryTree(int key) {
         root = new Node(key);
+        N++;
     }
+
+    /**
+     * Returns current size of the tree
+     * @return size of tree
+     */
+    public int size() {
+        return N;
+    }
+    
 
     /**
      *  Insert key into BinaryTree.
@@ -36,6 +46,7 @@ class BinaryTree {
      */
     public void put(int key) {
         root = put(root, key);
+        N++;
     }
 
     private Node put(Node x, int key) {
