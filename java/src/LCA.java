@@ -69,7 +69,7 @@ class BinaryTree {
         if (x == null) return false;
         if      (x.key > key) return get(x.left, key);
         else if (x.key < key) return get(x.right, key);
-        else              return true;
+        return true;
     }
 
     /**
