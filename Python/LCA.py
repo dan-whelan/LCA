@@ -1,3 +1,4 @@
+import unittest
 class Node:
     def __init__(self,key):
         self.key = key
@@ -39,7 +40,34 @@ class BinaryTree:
             return leftLCA
         else: 
             return rightLCA
-
+class LCATest(unittest.TestCase):
+    def testNodeConstructor(self):
+        x = Node(4)
+        self.assertEquals(x.key, 4)
+        self.assertEquals(x.left, None)
+        self.assertEquals(x.right, None)
+    
+    def testBinaryTreeConstructor(self):
+        tree = BinaryTree(4)
+        self.assertEquals(tree.root.key, 4)
+        self.assertEquals(tree.root.left, None)
+        self.assertEquals(tree.root.right,None)
+    
+    def testPut(self):
+        tree = BinaryTree(4)
+        tree.put(tree.root,2)
+        tree.put(tree.root,6)
+        self.assertEquals(tree.root.left.key, 2)
+        self.assertEquals(tree.root.right.key, 6)
+    
+    def testGet(self):
+        tree = BinaryTree(4)
+        tree.put(tree.root,2)
+        tree.put(tree.root,6)
+        self.assertEquals(tree.get(tree.root,4),True)
+        self.assertEquals(tree.get(tree.root,2),True)
+        self.assertEquals(tree.get(tree.root,6),True)
+        self.assertEquals(tree.get(tree.root,10),False)
 
 if __name__ =='__main__':
     tree = BinaryTree(4)
@@ -59,7 +87,4 @@ if __name__ =='__main__':
         print("LCA of key:4 and key:10 is" + str(lcaFound.key))
     else:
         print("LCA of key:4 and key:10 does not exist")
-
-
-
-
+    unittest.main()
