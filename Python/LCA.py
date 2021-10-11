@@ -40,6 +40,7 @@ class BinaryTree:
             return leftLCA
         else: 
             return rightLCA
+            
 class LCATest(unittest.TestCase):
     def testNodeConstructor(self):
         x = Node(4)
