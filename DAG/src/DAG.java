@@ -99,6 +99,7 @@ public class DAG {
                     }
                 }
             }
+            counter++;
         }
         return false;
     }
